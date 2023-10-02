@@ -27,7 +27,10 @@ def get_restaurants():
 def get_restaurant(restaurant_id):
     restaurant = Restaurant.query.get(restaurant_id)
     if restaurant:
-        return jsonify(restaurant.__dict__)
+        return jsonify(
+            id =restaurant.id,
+            name=restaurant.name,
+        )
     else:
         return jsonify({'message': 'Restaurant not found'}), 404
 

@@ -16,9 +16,10 @@ with app.app_context():
         restaurant1 = Restaurant(id=1 ,name="Pizza Hut", address="123 Main St")
         
         restaurant2 = Restaurant(id=2 ,name="Domino's", address="456 Elm St")
+        restaurant3 = Restaurant(id=3 ,name="Ian's Kibanda", address="123 Moringa St")
 
         # Add objects to the session
-        db.session.add_all([restaurant1, restaurant2])
+        db.session.add_all([restaurant3])
         db.session.commit()
 
         
@@ -30,7 +31,7 @@ with app.app_context():
         restaurant_pizza3 = RestaurantPizza(id=3, price=11.99, pizza_id=2, restaurant_id=2)
 
         # Add RestaurantPizza objects to the session
-        db.session.add_all([restaurant_pizza1, restaurant_pizza2, restaurant_pizza3])
+        #db.session.add_all([restaurant_pizza1, restaurant_pizza2, restaurant_pizza3])
         db.session.commit()
 
     if __name__ == '__main__':
