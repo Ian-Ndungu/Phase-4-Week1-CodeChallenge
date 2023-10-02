@@ -13,23 +13,21 @@ with app.app_context():
         pizza2 = Pizza(name="Pepperoni", ingredients="Tomato, Mozzarella, Pepperoni")
 
         # Create Restaurant objects
-        restaurant1 = Restaurant(name="Pizza Hut", address="123 Main St")
-        restaurant2 = Restaurant(name="Domino's", address="456 Elm St")
+        restaurant1 = Restaurant(id=1 ,name="Pizza Hut", address="123 Main St")
+        
+        restaurant2 = Restaurant(id=2 ,name="Domino's", address="456 Elm St")
 
         # Add objects to the session
-        db.session.add_all([pizza1, pizza2, restaurant1, restaurant2])
+        db.session.add_all([restaurant1, restaurant2])
         db.session.commit()
 
-        # Get Pizza and Restaurant objects from the database
-        pizza1 = Pizza.query.filter_by(name="Margherita").first()
-        pizza2 = Pizza.query.filter_by(name="Pepperoni").first()
-        restaurant1 = Restaurant.query.filter_by(name="Pizza Hut").first()
-        restaurant2 = Restaurant.query.filter_by(name="Domino's").first()
-
+        
         # Create RestaurantPizza objects and set the relationship
-        restaurant_pizza1 = RestaurantPizza(price=10.99, pizza=pizza1, restaurant=restaurant1)
-        restaurant_pizza2 = RestaurantPizza(price=12.99, pizza=pizza2, restaurant=restaurant1)
-        restaurant_pizza3 = RestaurantPizza(price=11.99, pizza=pizza1, restaurant=restaurant2)
+        print('error')
+        restaurant_pizza1 = RestaurantPizza(id=1 ,price=10.99, pizza_id=1, restaurant_id=1)
+        print('error1')
+        restaurant_pizza2 = RestaurantPizza(id=2 ,price=12.99, pizza_id=1, restaurant_id=1)
+        restaurant_pizza3 = RestaurantPizza(id=3, price=11.99, pizza_id=2, restaurant_id=2)
 
         # Add RestaurantPizza objects to the session
         db.session.add_all([restaurant_pizza1, restaurant_pizza2, restaurant_pizza3])
